@@ -32,8 +32,8 @@ func main() {
 		clear.Run()
 		//run check on throwaway ec2 instance
 		checkUp("13.59.137.165")
-		//Poll every 2 minutes.
-		time.Sleep(10000 * time.Millisecond)
+		//Poll every 12 seconds.
+		time.Sleep(12000 * time.Millisecond)
 	}
 
 }
