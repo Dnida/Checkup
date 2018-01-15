@@ -9,7 +9,7 @@ import (
 	"github.com/sparrc/go-ping"
 )
 
-func checkUp(server string) {
+func checkup(server string) {
 	pinger, err := ping.NewPinger(server)
 	if err != nil {
 		panic(err)
@@ -31,9 +31,9 @@ func main() {
 		clear.Stdout = os.Stdout
 		clear.Run()
 		//run check on throwaway ec2 instance
-		checkUp("13.59.137.165")
-		//Poll every 12 seconds.
-		time.Sleep(12000 * time.Millisecond)
+		checkup("13.59.137.165")
+		//Poll every 2 minutes.
+		time.Sleep(10000 * time.Millisecond)
 	}
 
 }
