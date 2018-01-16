@@ -32,16 +32,22 @@ func clearscreen() {
 }
 
 func main() {
+
+	checkserv := [3]string{
+		"www.rooksandkings.com",
+		"www.google.com",
+		"www.facebook.com",
+	}
+
 	for {
 		clearscreen()
-		//run check on ip address using goroutines to call function at once.
-		go checkup("13.59.137.165")
-		go checkup("13.59.137.165")
-		go checkup("13.59.137.165")
-		go checkup("13.59.137.165")
+		//run check on ip/domains in the array
+		checkup(checkserv[0])
+		checkup(checkserv[1])
+		checkup(checkserv[2])
 
-		//Poll every 2 minutes.
-		time.Sleep(10000 * time.Millisecond)
+		//Poll every 90 seconds.
+		time.Sleep(90 * time.Second)
 	}
 
 }
