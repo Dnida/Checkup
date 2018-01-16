@@ -25,13 +25,21 @@ func checkup(server string) {
 	}
 }
 
+func clearscreen() {
+	clear := exec.Command("clear")
+	clear.Stdout = os.Stdout
+	clear.Run()
+}
+
 func main() {
 	for {
-		clear := exec.Command("clear")
-		clear.Stdout = os.Stdout
-		clear.Run()
-		//run check on throwaway ec2 instance
-		checkup("13.59.137.165")
+		clearscreen()
+		//run check on ip address using goroutines to call function at once.
+		go checkup("13.59.137.165")
+		go checkup("13.59.137.165")
+		go checkup("13.59.137.165")
+		go checkup("13.59.137.165")
+
 		//Poll every 2 minutes.
 		time.Sleep(10000 * time.Millisecond)
 	}
